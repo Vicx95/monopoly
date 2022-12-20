@@ -12,13 +12,12 @@ Board::Board() {
     board_[15] = Square(PieceType::Reward);
     board_[11] = Square(PieceType::Reward);
     board_[9] = Square(PieceType::Reward);
-
 }
 
-Square Board::getSquareInfo(int index) const{
+Square Board::getSquareInfo(int index) const {
     return board_[index];
 }
 
-int Board::getBoardSize() const{
+int Board::getBoardSize() const {
     return static_cast<int>(board_.size());
 }

@@ -6,7 +6,7 @@ MonopolyGame::MonopolyGame(std::vector<Player>& players, const Board& board)
 void MonopolyGame::startGame([[maybe_unused]] int numberOfRounds) {
     for (int i = 1; i <= numberOfRounds; ++i) {
         std::cout << "Round: " << i << '\n';
-        for(auto& player : players_){
+        for (auto& player : players_) {
             std::cout << "Player " << player.getName() << " move\n";
             player.move();
         }

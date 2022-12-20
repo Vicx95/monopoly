@@ -12,9 +12,11 @@ void Player::move() {
                   << "Player gets 400 zl reward";
         money_ += 400;
         position_ = result - board_.getBoardSize() - 1;
+        return;
     }
     auto squareInfo = board_.getSquareInfo(position_);
     checkSquare(squareInfo);
+
 }
 
 std::string Player::getName() const {
@@ -43,8 +45,10 @@ void Player::checkSquare(const Square& square) {
         money_ -= 400;
     }
     else if(square.getPieceType() == PieceType::Reward){
-        std::cout << "Player " << playerName_ << " stayed at Reawed Piece\n"
+        std::cout << "Player " << playerName_ << " stayed at Reward Piece\n"
                   << "Player have to get 400 zl reward\n";
         money_ += 400;
+    }else{
+        std::cout << "Player " << playerName_ << " stayed at Neutral Piece";
     } 
 }

@@ -11,8 +11,8 @@ public:
     void move();
 
     std::string getName() const;
-    int getPosition() const ;
-    int getMoney() const ;
+    int getPosition() const;
+    int getMoney() const;
 
 private:
     int throwDices();
