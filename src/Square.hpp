@@ -1,17 +1,27 @@
 #pragma once
 
-enum class PieceType {
-    Start,
-    Penalty,
-    Reward
-};
+class Player;
 
 class Square {
 public:
-    Square() = default;
-    explicit Square(PieceType pieceType);
-    PieceType getPieceType() const;
+    virtual void onPass(Player& player) const = 0;
+    virtual void onLand(Player& player) const = 0;
+};
 
-private:
-    PieceType pieceType_;
+class StartSquare : public Square {
+public:
+    void onPass(Player& player) const override;
+    void onLand(Player& player) const override;
+};
+
+class PenaltySquare : public Square {
+public:
+    void onPass(Player& player) const override;
+    void onLand(Player& player) const override;
+};
+
+class RewardSquare : public Square {
+public:
+    void onPass(Player& player) const override;
+    void onLand(Player& player) const override;
 };

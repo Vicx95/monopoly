@@ -2,6 +2,9 @@
 #include <string>
 #include "Board.hpp"
 #include "Square.hpp"
+
+using Money = unsigned int;
+
 constexpr int defaultPosition = 0;
 constexpr std::size_t defaultMoneyValue = 4000;
 
@@ -19,6 +22,6 @@ private:
     void checkSquare(const Square& square);
     int position_{defaultPosition};
     std::string playerName_;
-    int money_{defaultMoneyValue};
+    Money money_{defaultMoneyValue};
     const Board& board_;
 };
