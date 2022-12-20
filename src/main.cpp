@@ -1,5 +1,12 @@
 #include <iostream>
-
+#include "Player.hpp"
+#include <vector>
 int main() {
-    std::cout << "Hello from test repository!\n";
+
+    Board board;
+    std::vector<Player> playersVector = {
+        {"Adam", board},
+        {"Patryk", board}
+    };
+    //MonopolyGame()
 }
