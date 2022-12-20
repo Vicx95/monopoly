@@ -6,30 +6,23 @@ Player::Player(std::string name, const Board& board)
     : playerName_(name), board_(board) {}
 
 void Player::move() {
-    const auto numberOfMoves = throwDices();
+    auto numberOfMoves = throwDices();
     std::cout << "    throwDices: " << numberOfMoves << "\n";
+    std::cout << "    current position: " << position_ << "\n";
 
-    auto newPosition = numberOfMoves + position_;
-    if (newPosition > board_.getBoardSize() - 1) {
-        newPosition = newPosition - board_.getBoardSize();
-    }
-
-    std::cout << "    current position: " << newPosition << "\n";
-    std::cout << "    new position: " << newPosition << "\n";
-
-    for (int i = position_ + 1; i != newPosition; ++i)
+    while (numberOfMoves--)
     {
-        if (i >= board_.getBoardSize())
+        position_++;
+        if (position_ >= board_.getBoardSize())
         {
-            i = 0;
+            position_ = 0;
         }
+        std::cout << "    moving to the next position: " << position_ << "\n";
         const auto& squareInfo = board_.getSquareInfo(position_);
         squareInfo.onPass(*this);
     }
-    const auto& squareInfo = board_.getSquareInfo(newPosition);
+    const auto& squareInfo = board_.getSquareInfo(position_);
     squareInfo.onLand(*this);
-
-    position_ = newPosition;
 }
 
 void Player::addMoney(Money amount){
