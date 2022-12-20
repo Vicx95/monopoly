@@ -8,6 +8,7 @@ void MonopolyGame::startGame([[maybe_unused]] int numberOfRounds) {
         std::cout << "Round: " << i << '\n';
         for(auto& player : players_){
             std::cout << "Player " << player.getName() << " move\n";
+            player.move();
         }
     }
 }
