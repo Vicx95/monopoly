@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(testApp)
+project(monopoly)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -16,6 +16,7 @@ set(SOURCES
     src/Square.cpp
     src/Board.cpp
     src/Player.cpp
+    src/MonopolyGame.cpp
     )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

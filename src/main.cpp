@@ -1,12 +1,12 @@
-#include <iostream>
-#include "Player.hpp"
-#include <vector>
-int main() {
 
+#include <vector>
+#include "MonopolyGame.hpp"
+#include "Player.hpp"
+
+int main() {
     Board board;
     std::vector<Player> playersVector = {
         {"Adam", board},
-        {"Patryk", board}
-    };
-    //MonopolyGame()
+        {"Patryk", board}};
+    MonopolyGame monopoly(playersVector, board);
 }
