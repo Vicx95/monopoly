@@ -6,7 +6,7 @@ Player::Player(std::string name, const Board& board)
     : playerName_(name), board_(board) {}
 
 void Player::move() {
-    [[maybe_unused]] auto result = throwDices() + position_;
+    [[maybe_unused]] auto result = throwDices() + position_; // todo: change name
     if (result > board_.getBoardSize() - 1) {
         std::cout << "Player " << playerName_ <<"moved through the start\n"
                   << "Player gets 400 zl reward";
@@ -50,5 +50,5 @@ void Player::checkSquare(const Square& square) {
         money_ += 400;
     }else{
         std::cout << "Player " << playerName_ << " stayed at Neutral Piece";
-    } 
+    }
 }
