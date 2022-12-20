@@ -12,6 +12,8 @@ class Player {
 public:
     Player(std::string name, const Board& board);
     void move();
+    void addMoney(Money amount);
+    void substractMoney(Money amount);
 
     std::string getName() const;
     int getPosition() const;
@@ -19,7 +21,6 @@ public:
 
 private:
     int throwDices();
-    void checkSquare(const Square& square);
     int position_{defaultPosition};
     std::string playerName_;
     Money money_{defaultMoneyValue};

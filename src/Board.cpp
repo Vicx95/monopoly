@@ -1,21 +1,25 @@
 #include "Board.hpp"
 
 Board::Board() {
-    board_[0] = Square(PieceType::Start);
+    for (unsigned int i = 0; i < board_.size(); ++i) // TODO: consider configurability
+    {
+        board_[i] = std::make_unique<RewardSquare>();
+    }
 
-    board_[10] = Square(PieceType::Penalty);
-    board_[5] = Square(PieceType::Penalty);
-    board_[7] = Square(PieceType::Penalty);
-    board_[3] = Square(PieceType::Penalty);
-
-    board_[2] = Square(PieceType::Reward);
-    board_[15] = Square(PieceType::Reward);
-    board_[11] = Square(PieceType::Reward);
-    board_[9] = Square(PieceType::Reward);
+    board_[0] = std::make_unique<StartSquare>();
+    board_[3] = std::make_unique<PenaltySquare>();
+    board_[4] = std::make_unique<PenaltySquare>();
+    board_[5] = std::make_unique<PenaltySquare>();
+    board_[7] = std::make_unique<PenaltySquare>();
+    board_[9] = std::make_unique<PenaltySquare>();
+    board_[10] = std::make_unique<PenaltySquare>();
+    board_[11] = std::make_unique<PenaltySquare>();
+    board_[15] = std::make_unique<PenaltySquare>();
 }
 
-Square Board::getSquareInfo(int index) const {
-    return board_[index];
+const Square& Board::getSquareInfo(int index) const {
+
+    return *board_[index];
 }
 
 int Board::getBoardSize() const {

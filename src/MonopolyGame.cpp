@@ -9,6 +9,8 @@ void MonopolyGame::startGame([[maybe_unused]] int numberOfRounds) {
         for (auto& player : players_) {
             std::cout << "Player " << player.getName() << " move\n";
             player.move();
+            std::cout << "    position: " << player.getPosition() << "\n";
+            std::cout << "    money: " << player.getMoney() << "\n";
         }
     }
 }

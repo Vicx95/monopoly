@@ -8,4 +8,7 @@ int main() {
         {"Adam", board},
         {"Patryk", board}};
     MonopolyGame monopoly(playersVector, board);
+
+    const int numOfRounds = 2;
+    monopoly.startGame(numOfRounds);
 }

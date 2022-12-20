@@ -1,5 +1,6 @@
 #pragma once
 #include <array>
+#include <memory>
 #include "Square.hpp"
 
 constexpr int boardSize = 40;
@@ -8,9 +9,9 @@ class Board {
 public:
     Board();
 
-    Square getSquareInfo(int index) const;
+    const Square& getSquareInfo(int index) const;
     int getBoardSize() const;
 
 private:
-    std::array<Square, boardSize> board_;
+    std::array<std::unique_ptr<Square>, boardSize> board_;
 };
