@@ -14,6 +14,7 @@ FetchContent_Declare(
 set(SOURCES 
     src/main.cpp 
     src/Square.cpp
+    src/Board.cpp
     )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

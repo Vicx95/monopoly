@@ -8,6 +8,8 @@ enum class PieceType {
 
 class Square {
 public:
+    Square() = default;
+    explicit Square(PieceType pieceType);
     PieceType getPieceType();
 
 private:
