@@ -9,6 +9,10 @@ public:
     Player(std::string name, const Board& board);
     void move();
 
+    std::string getName() const;
+    int getPosition() const ;
+    std::size_t getMoney() const ;
+
 private:
     int throwDices();
     int position_{defaultPosition};

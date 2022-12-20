@@ -4,11 +4,11 @@
 
 class MonopolyGame {
 public:
-    MonopolyGame(const std::vector<Player>& players, const Board& board);
+    MonopolyGame(std::vector<Player>& players, const Board& board);
 
     void startGame(int numberOfRounds);
 
 private:
-    const std::vector<Player>& players_;
+    std::vector<Player>& players_;
     const Board& board_;
 };
