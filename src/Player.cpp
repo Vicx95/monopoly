@@ -17,7 +17,7 @@ void Player::move(unsigned int numberOfMoves) {
         const auto& squareInfo = ++boardIterator_;
         squareInfo.onPass(*this);
     }
-    const auto& squareInfo = boardIterator_.getCurrent();
+    const auto& squareInfo = *boardIterator_;
     squareInfo.onLand(*this);
 
     std::cout << "    Money: " << money_ << "\n";

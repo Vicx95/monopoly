@@ -51,6 +51,6 @@ const Square& BoardIterator::operator++() {
     return board_.getSquareInfo(position_);
 }
 
-const Square& BoardIterator::getCurrent() {
+const Square& BoardIterator::operator*() {
     return board_.getSquareInfo(position_);
 }

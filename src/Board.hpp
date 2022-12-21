@@ -21,7 +21,7 @@ class BoardIterator {
 public:
     BoardIterator(const Board& board);
     const Square& operator++();
-    const Square& getCurrent();
+    const Square& operator*();
 
 private:
     const Board& board_;
