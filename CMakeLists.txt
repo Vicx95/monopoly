@@ -11,12 +11,13 @@ FetchContent_Declare(
   GIT_TAG release-1.12.1
 )
 
-set(SOURCES 
-    src/main.cpp 
+set(SOURCES
+    src/main.cpp
     src/Square.cpp
     src/Board.cpp
     src/Player.cpp
     src/MonopolyGame.cpp
+    src/Dice.cpp
     )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
@@ -26,7 +27,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE ${FLAGS})
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-set(UT-SOURCES 
+set(UT-SOURCES
     tests/main.cpp
     )
 

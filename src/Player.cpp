@@ -1,37 +1,36 @@
 #include "Player.hpp"
 #include <iostream>
-#include <random>
 
 Player::Player(std::string name, const Board& board)
     : playerName_(name), board_(board) {}
 
-void Player::move() {
-    auto numberOfMoves = throwDices();
-    std::cout << "    throwDices: " << numberOfMoves << "\n";
-    std::cout << "    current position: " << position_ << "\n";
+void Player::move(unsigned int numberOfMoves) {
+    std::cout << "    Current position: [" << position_ << "]\n";
+    std::cout << "    Current money balance: " << money_ << "\n";
+    std::cout << "    Dice are thrown. Number of moves to make: " << numberOfMoves << "\n";
 
-    while (numberOfMoves--)
-    {
+    while (numberOfMoves--) {
         position_++;
-        if (position_ >= board_.getBoardSize())
-        {
+        if (position_ >= board_.getBoardSize()) {
             position_ = 0;
         }
-        std::cout << "    moving to the next position: " << position_ << "\n";
+        std::cout << "    Moving towards position [" << position_ << "] ";
         const auto& squareInfo = board_.getSquareInfo(position_);
         squareInfo.onPass(*this);
     }
+    std::cout << "    ";
     const auto& squareInfo = board_.getSquareInfo(position_);
     squareInfo.onLand(*this);
+
+    std::cout << "    Money: " << money_ << "\n";
 }
 
-void Player::addMoney(Money amount){
+void Player::addMoney(Money amount) {
     money_ += amount;
 }
 
-void Player::substractMoney(Money amount){
-    if (amount >= money_)
-    {
+void Player::substractMoney(Money amount) {
+    if (amount >= money_) {
         money_ = 0;
     }
     money_ -= amount;
@@ -41,17 +40,3 @@ std::string Player::getName() const {
     return playerName_;
 }
 
-int Player::getPosition() const {
-    return position_;
-}
-
-int Player::getMoney() const {
-    return money_;
-}
-
-int Player::throwDices() {
-    std::random_device rd{};
-    std::mt19937 gen{rd()};
-    std::uniform_int_distribution<> dice{2, 12};
-    return dice(gen);
-}

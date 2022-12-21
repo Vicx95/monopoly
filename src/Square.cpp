@@ -4,7 +4,7 @@
 
 void printInfo(Player& player, std::string info)
 {
-    std::cout << "    " << player.getName() << " " << info << "\n";
+    std::cout << player.getName() << " " << info << "\n";
 }
 
 void StartSquare::onPass(Player& player) const {
