@@ -1,9 +1,10 @@
 #include "Board.hpp"
 
 Board::Board() {
-    for (unsigned int i = 0; i < board_.size(); ++i) // TODO: consider configurability
-    {
-        board_[i] = std::make_unique<RewardSquare>();
+    // create Board with default size
+    board_.reserve(defaultBoardSize);
+    for (unsigned int i = 0; i < defaultBoardSize; ++i) {
+        board_.push_back(std::make_unique<RewardSquare>());
     }
 
     board_[0] = std::make_unique<StartSquare>();
@@ -17,8 +18,20 @@ Board::Board() {
     board_[15] = std::make_unique<PenaltySquare>();
 }
 
-const Square& Board::getSquareInfo(int index) const {
+Board::Board(std::size_t size) {
+    board_.reserve(size);
+    board_.push_back(std::make_unique<StartSquare>());
 
+    for (unsigned int i = 1; i < size; ++i) {
+        if (i % 2 == 0) {
+            board_.push_back(std::make_unique<PenaltySquare>());
+        } else {
+            board_.push_back(std::make_unique<RewardSquare>());
+        }
+    }
+}
+
+const Square& Board::getSquareInfo(int index) const {
     return *board_[index];
 }
 

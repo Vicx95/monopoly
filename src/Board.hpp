@@ -1,17 +1,18 @@
 #pragma once
-#include <array>
+#include <vector>
 #include <memory>
 #include "Square.hpp"
 
-constexpr int boardSize = 40;
+constexpr int defaultBoardSize = 40;
 
 class Board {
 public:
     Board();
+    Board(std::size_t size);
 
     const Square& getSquareInfo(int index) const;
     int getBoardSize() const;
 
 private:
-    std::array<std::unique_ptr<Square>, boardSize> board_;
+    std::vector<std::unique_ptr<Square>> board_;
 };

@@ -1,10 +1,12 @@
 
 #include "MonopolyGame.hpp"
 int main() {
-    const std::size_t numOfDice = 1;
+    const std::size_t numOfDice = 3;
     const std::size_t numOfSides = 6;
     Dice dice(numOfDice, numOfSides);
-    Board board;
+
+    const std::size_t boardSize = 10;
+    Board board(boardSize);
     MonopolyGame monopoly(board, dice);
 
     monopoly.addPlayer("Adam");
