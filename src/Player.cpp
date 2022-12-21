@@ -2,10 +2,11 @@
 #include <iostream>
 
 Player::Player(std::string name, const Board& board)
-    : playerName_(name), board_(board) {}
+    : playerName_(name), board_(board), boardIterator_(BoardIterator(board)) {
+}
 
 Player::Player(std::string name, const Board& board, Money startingMoney)
-    : playerName_(name), money_(startingMoney), board_(board) {}
+    : playerName_(name), money_(startingMoney), board_(board), boardIterator_(BoardIterator(board)) {}
 
 void Player::move(unsigned int numberOfMoves) {
     std::cout << "    Current position: [" << position_ << "]\n";
@@ -13,16 +14,10 @@ void Player::move(unsigned int numberOfMoves) {
     std::cout << "    Dice are thrown. Number of moves to make: " << numberOfMoves << "\n";
 
     while (numberOfMoves--) {
-        position_++;
-        if (position_ >= board_.getBoardSize()) {
-            position_ = 0;
-        }
-        std::cout << "    Moving towards position [" << position_ << "] ";
-        const auto& squareInfo = board_.getSquareInfo(position_);
+        const auto& squareInfo = ++boardIterator_;
         squareInfo.onPass(*this);
     }
-    std::cout << "    ";
-    const auto& squareInfo = board_.getSquareInfo(position_);
+    const auto& squareInfo = boardIterator_.getCurrent();
     squareInfo.onLand(*this);
 
     std::cout << "    Money: " << money_ << "\n";
@@ -42,4 +37,3 @@ void Player::substractMoney(Money amount) {
 std::string Player::getName() const {
     return playerName_;
 }
-

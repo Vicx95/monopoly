@@ -16,3 +16,14 @@ public:
 private:
     std::vector<std::unique_ptr<Square>> board_;
 };
+
+class BoardIterator {
+public:
+    BoardIterator(const Board& board);
+    const Square& operator++();
+    const Square& getCurrent();
+
+private:
+    const Board& board_;
+    int position_{0};
+};

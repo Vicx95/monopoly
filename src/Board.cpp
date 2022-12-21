@@ -38,3 +38,19 @@ const Square& Board::getSquareInfo(int index) const {
 int Board::getBoardSize() const {
     return static_cast<int>(board_.size());
 }
+
+BoardIterator::BoardIterator(const Board& board)
+    : board_(board) {
+}
+
+const Square& BoardIterator::operator++() {
+    position_++;
+    if (position_ >= board_.getBoardSize()) {
+        position_ = 0;
+    }
+    return board_.getSquareInfo(position_);
+}
+
+const Square& BoardIterator::getCurrent() {
+    return board_.getSquareInfo(position_);
+}

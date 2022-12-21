@@ -23,4 +23,5 @@ private:
     std::string playerName_;
     Money money_{defaultMoneyValue};
     const Board& board_;
+    BoardIterator boardIterator_;
 };
