@@ -27,6 +27,6 @@ void MonopolyGame::takePlayerTurn(Player& player) {
 }
 
 void MonopolyGame::addPlayer(const std::string& name) {
-    Player newPlayer(name, board_);
+    Player newPlayer(name, board_, 1000);
     players_.push_back(newPlayer);
 }

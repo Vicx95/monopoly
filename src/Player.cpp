@@ -4,6 +4,9 @@
 Player::Player(std::string name, const Board& board)
     : playerName_(name), board_(board) {}
 
+Player::Player(std::string name, const Board& board, Money startingMoney)
+    : playerName_(name), money_(startingMoney), board_(board) {}
+
 void Player::move(unsigned int numberOfMoves) {
     std::cout << "    Current position: [" << position_ << "]\n";
     std::cout << "    Current money balance: " << money_ << "\n";

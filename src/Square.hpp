@@ -1,27 +1,27 @@
 #pragma once
 
-class Player;
+class Guest;
 
 class Square {
 public:
-    virtual void onPass(Player& player) const = 0;
-    virtual void onLand(Player& player) const = 0;
+    virtual void onPass(Guest& player) const = 0;
+    virtual void onLand(Guest& player) const = 0;
 };
 
 class StartSquare : public Square {
 public:
-    void onPass(Player& player) const override;
-    void onLand(Player& player) const override;
+    void onPass(Guest& player) const override;
+    void onLand(Guest& player) const override;
 };
 
 class PenaltySquare : public Square {
 public:
-    void onPass(Player& player) const override;
-    void onLand(Player& player) const override;
+    void onPass(Guest& player) const override;
+    void onLand(Guest& player) const override;
 };
 
 class RewardSquare : public Square {
 public:
-    void onPass(Player& player) const override;
-    void onLand(Player& player) const override;
+    void onPass(Guest& player) const override;
+    void onLand(Guest& player) const override;
 };
