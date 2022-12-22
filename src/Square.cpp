@@ -1,6 +1,7 @@
 #include "Square.hpp"
 #include "Guest.hpp"
 #include <iostream>
+#include <random>
 
 void printInfo([[maybe_unused]]Guest& player, std::string info)
 {
@@ -42,4 +43,21 @@ void PrisonSquare::onPass(Guest& player) const{
 void PrisonSquare::onLand(Guest& player) const{
     printInfo(player, "going to PRISON for 3 queues");
     player.waitInPrison();
+}
+
+void RandomSquare::onPass(Guest& player) const {
+    std::cout << "RANDOM\n";
+    std::random_device rd{};
+    std::mt19937 gen{rd()};
+    std::uniform_int_distribution<> dice{0, 2};
+    auto result = dice(gen);
+    randomSquares_[result]->onPass(player);
+}
+
+void RandomSquare::onLand(Guest& player) const {
+    std::cout << "RANDOM\n";
+    std::random_device rd{};
+    std::mt19937 gen{rd()};
+    std::uniform_int_distribution<> dice{0, 2};
+
 }
