@@ -33,3 +33,13 @@ void RewardSquare::onLand(Guest& player) const {
     printInfo(player, "has landed on REWARD Square");
     player.addMoney(1000);
 }
+
+
+void PrisonSquare::onPass(Guest& player) const{
+    printInfo(player, "is passing PRISON Square");
+}
+
+void PrisonSquare::onLand(Guest& player) const{
+    printInfo(player, "going to PRISON for 3 queues");
+    player.waitInPrison();
+}

@@ -17,7 +17,13 @@ void MonopolyGame::startGame(unsigned int numberOfRounds) {
 void MonopolyGame::playRound() {
     for (auto& player : players_) {
         std::cout << "  Player " << player.getName() << " turn\n";
-        takePlayerTurn(player);
+        if(player.canMove()){
+            takePlayerTurn(player);
+        }
+        else{
+            std::cout << "Player" << player.getName() <<"is in prison for ";
+            player.decrementQueueInPrison();
+        }
     }
 }
 

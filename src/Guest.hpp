@@ -7,4 +7,5 @@ class Guest {
 public:
     virtual void addMoney(Money amount) = 0;
     virtual void substractMoney(Money amount) = 0;
+    virtual void waitInPrison(int queues = 3) = 0;
 };

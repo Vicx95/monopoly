@@ -34,6 +34,18 @@ void Player::substractMoney(Money amount) {
     money_ -= amount;
 }
 
+void Player::waitInPrison(int queues){
+    queuesInPrison_ = queues;
+}
+
 std::string Player::getName() const {
     return playerName_;
+}
+
+bool Player::canMove(){
+    return queuesInPrison_ == 0;
+}
+
+void Player::decrementQueueInPrison(){
+    std::cout << queuesInPrison_-- << " queues\n";
 }

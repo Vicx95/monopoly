@@ -25,3 +25,9 @@ public:
     void onPass(Guest& player) const override;
     void onLand(Guest& player) const override;
 };
+
+class PrisonSquare : public Square{
+public:
+    void onPass(Guest& player) const override;
+    void onLand(Guest& player) const override;
+};

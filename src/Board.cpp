@@ -8,6 +8,8 @@ Board::Board() {
     }
 
     board_[0] = std::make_unique<StartSquare>();
+    board_[1] = std::make_unique<PrisonSquare>();
+    board_[2] = std::make_unique<PrisonSquare>();
     board_[3] = std::make_unique<PenaltySquare>();
     board_[4] = std::make_unique<PenaltySquare>();
     board_[5] = std::make_unique<PenaltySquare>();
@@ -15,7 +17,11 @@ Board::Board() {
     board_[9] = std::make_unique<PenaltySquare>();
     board_[10] = std::make_unique<PenaltySquare>();
     board_[11] = std::make_unique<PenaltySquare>();
+    board_[12] = std::make_unique<PrisonSquare>();
+    board_[13] = std::make_unique<PrisonSquare>();
+    board_[14] = std::make_unique<PrisonSquare>();
     board_[15] = std::make_unique<PenaltySquare>();
+    
 }
 
 Board::Board(std::size_t size) {
